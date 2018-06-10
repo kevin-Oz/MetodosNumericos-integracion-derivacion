@@ -11,11 +11,11 @@ public class Principal {
     public static void main(String[] args) {
     
         Hacia_Adelante nueva = new Hacia_Adelante();
-        nueva.setF("ln(x)");
+        nueva.setF("(2*x)*cos(x)");
         nueva.setH(0.1);
-        nueva.setX(5);
-        
-        System.out.println(""+nueva.primera_Dif());
+        nueva.setX(5.7);
+       
+        System.out.println(""+nueva.segunda_Dif_Orden2());
         
     }
     
