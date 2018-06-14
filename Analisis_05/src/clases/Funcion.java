@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clases;
 
 import org.lsmp.djep.xjep.XJep;
@@ -11,6 +6,7 @@ import org.nfunk.jep.JEP;
 /**
  *
  * @author kevin Figueroa
+ * clase para transformar y evaluar valores en diferentes funciones
  */
 public class Funcion {
 
@@ -30,17 +26,21 @@ public class Funcion {
             System.out.println(hi.getErrorInfo());
         }
     }
-
+/**
+ *
+ * @param x el numero a evaluar...
+ * @return  el valor "x" evaluado en la funcion
+ */
     public double eval(double x) {
-        double resp;
+        double evaluador;
 
         hi.addVariable("x", x);
-        resp = hi.getValue();
+        evaluador = hi.getValue();
         if (hi.hasError()) {
             System.out.println(hi.getErrorInfo());
         }
 
-        return resp;
+        return evaluador;
 
     }
 

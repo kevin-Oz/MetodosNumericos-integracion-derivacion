@@ -1,36 +1,21 @@
-package Diferencias_finitas_OrdenSuperior;
+package derivacion_numerica;
 
 import clases.Funcion;
 /**
  * @author kevin Figueroa
+ * Calculo de las diferencias finitas hacia adelante de orden 1 y superior
  */
 public class Hacia_Adelante {
+    
+    
 
-    private double x;
-    private double h;
-    private String f;
+    private final double x;
+    private final double h;
+    private final String f;
 
-    public double getX() {
-        return x;
-    }
-
-    public void setX(double x) {
+    public Hacia_Adelante(double x, double h, String f) {
         this.x = x;
-    }
-
-    public double getH() {
-        return h;
-    }
-
-    public void setH(double h) {
         this.h = h;
-    }
-
-    public String getF() {
-        return f;
-    }
-
-    public void setF(String f) {
         this.f = f;
     }
 
@@ -42,7 +27,7 @@ public class Hacia_Adelante {
 
     public double segunda_Dif() {
         Funcion funci = new Funcion(f);
-        double derivada = (-funci.eval(x + 2 * h) + 4 * (funci.eval(x + h)) - 3 * (funci.eval(x))) / 2 * h;
+        double derivada = (-funci.eval(x + 2 * h) + 4 * (funci.eval(x + h)) - 3 * (funci.eval(x))) / (2 * h);
         return derivada;
     }
 
