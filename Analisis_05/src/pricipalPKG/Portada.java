@@ -386,7 +386,7 @@ public class Portada extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMousePressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Derivacion dev = new Derivacion();
+        FrmDerivada dev = new FrmDerivada();
         dev.show();
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -22,10 +22,10 @@ public class Principal {
 
         Portada prl = new Portada();
         prl.show();
-        String f = "(sin(x)*(1/x))";
-        double a = -1;
-        double b = 1;
-        int n = 1;
+//        String f = "(sin(x)*(1/x))";
+//        double a = -1;
+//        double b = 1;
+//        int n = 1;
 
         // recive como parametros el valor de -> x -> h -> funcion
 //        Hacia_Adelante nueva = new Hacia_Adelante(5.7,0.1,"(2*x)*cos(x)");
