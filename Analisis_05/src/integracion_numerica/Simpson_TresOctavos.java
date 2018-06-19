@@ -12,6 +12,8 @@ public class Simpson_TresOctavos {
     private final double a;
     private final double b;
     private int n;
+    public Funcion fun;
+    
 
     public int getN() {
         return n;
@@ -22,23 +24,18 @@ public class Simpson_TresOctavos {
     }
 
     public Simpson_TresOctavos(String f, double a, double b) {
+        this.fun = new Funcion(f);
         this.f = f;
         this.a = a;
         this.b = b;
     }
 
-    public double asche_simple() {
-        double h = (b - a) / 3;
-        return h;
-    }
-
-    public double asche_compuesta() {
+    public double asche() {
         double h = ((b - a) / (3 * n));
         return h;
     }
 
     public double sumatoria_uno(double h) {
-        Funcion fun = new Funcion(f);
         double sum_ = 0;
         for (int k = 1; k <= (n - 1); k++) {
             double temp = (3 * k) * h;
@@ -48,7 +45,6 @@ public class Simpson_TresOctavos {
     }
 
     public double sumatoria_dos(double h) {
-        Funcion fun = new Funcion(f);
         double sum_ = 0;
         for (int k = 1; k <= n; k++) {
             double temp = ((3 * k) - 2) * h;
@@ -58,7 +54,6 @@ public class Simpson_TresOctavos {
     }
 
     public double sumatoria_tres(double h) {
-        Funcion fun = new Funcion(f);
         double sum_ = 0;
         for (int k = 1; k <= n; k++) {
             double temp = ((3 * k) - 1) * h;
@@ -68,13 +63,11 @@ public class Simpson_TresOctavos {
     }
 
     public double simpson_simple(double h) {
-        Funcion fun = new Funcion(f);
         double integral = (3 * h / 8) * (fun.eval(a) + 3 * (fun.eval(a + h)) + 3 * (fun.eval(a + (2 * h))) + fun.eval(b));
         return integral;
     }
 
     public double simpson_compuesto(double h, double s1, double s2, double s3) {
-        Funcion fun = new Funcion(f);
         double integral = ((3 * h / 8) * (fun.eval(a) + fun.eval(b)) + (3 * h / 4) * (s1) + (9 * h / 8) * (s2) + (9 * h / 8) * (s3));
         return integral;
     }

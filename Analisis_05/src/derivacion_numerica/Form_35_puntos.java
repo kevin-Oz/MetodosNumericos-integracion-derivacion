@@ -11,12 +11,14 @@ public class Form_35_puntos {
 
     private final double x;
     private final double h;
-    private final String funcion;
+    private final String f;
+    public   Funcion fun;
 
-    public Form_35_puntos(double x, double h, String funcion) {
+    public Form_35_puntos(double x, double h, String f) {
+        this.fun= new Funcion(f);
         this.x = x;
         this.h = h;
-        this.funcion = funcion;
+        this.f = f;
     }
 
     /**
@@ -24,19 +26,16 @@ public class Form_35_puntos {
      * @return el valor aproximado de la derivada.
      */
     public double tres_puntos() {
-        Funcion fun = new Funcion(funcion);
         double derivada = (1 / (2 * h)) * (-3 * (fun.eval(x)) + 4 * (fun.eval(x + h)) - fun.eval(x + 2 * h));
         return derivada;
     }
 
     public double cinco_puntos_PD() {
-        Funcion fun = new Funcion(funcion);
         double derivada = (1 / (12 * h)) * (-25 * (fun.eval(x)) + 48 * (fun.eval(x + h)) - 36 * (fun.eval(x + 2 * h)) + 16 * (fun.eval(x + 3 * h)) - 3 * (fun.eval(x + 4 * h)));
         return derivada;
     }
 
     public double cinco_puntos_SD() {
-        Funcion fun = new Funcion(funcion);
         double derivada = (1 / (12 * h)) * (fun.eval(x - 2 * h) - 8 * (fun.eval(x - h)) + 8 * (fun.eval(x + h)) - fun.eval(x + 2 * h));
         return derivada;
     }

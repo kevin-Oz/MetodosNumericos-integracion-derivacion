@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package derivacion_numerica;
 
 /**
@@ -10,6 +6,8 @@ package derivacion_numerica;
  * @author kevin Figueroa
  *
  * aproximacion de richardson para derivadas de orden 1 ----> falta algo nose xd no me gusta como quedo :V
+ * 
+ * 
  */
 public class Richardson {
 
@@ -24,23 +22,21 @@ public class Richardson {
     }
 
     //calculo de h hasta nivel 3 
-    public double[] Dh_OrdenUno() {
+    
+// revisar el calculo de la h y compararlo con el codigo de rosemberg    
+    
+    public double[][] Dh_OrdenUno() {
         double[] aches = new double[3];
         aches[0] = h;
         for (int i = 1; i < 3; i++) {
             aches[i] = h / (i * 2);
-            System.out.println("" + aches[i]);
         }
-        System.out.println("\n");
         double valores[] = new double[aches.length];
 
         for (int i = 0; i < aches.length; i++) {
             Centradas dh = new Centradas(x, aches[i], f);
-            valores[i] = dh.segunda_Dif();         // define el orden que desea-------> 
+            valores[i] = dh.segunda_Dif();         // define el orden que desea-------> programa un metodo para calcular dif derivada
 
-        }
-        for (int i = 0; i < aches.length; i++) {
-            System.out.println("" + valores[i]);
         }
 
         double nivel_uno[] = new double[valores.length - 1];
@@ -50,18 +46,29 @@ public class Richardson {
             nivel_uno[i - 1] = ((1.33333333333) * (valores[i]) - (0.33333333) * (valores[i - 1]));
 
         }
-        System.out.println("\n");
         for (int i = 0; i < nivel_uno.length; i++) {
-            System.out.println("" + nivel_uno[i]);
         }
-        System.out.println("");
 
         nivel_dos = ((1.3333333) * (nivel_uno[1]) - (0.33333333) * (nivel_uno[0]));
 
-        System.out.println("" + nivel_dos);
+        double matriz[][]= new double[aches.length][aches.length+1];
+        
+        for (int i = 0; i < aches.length; i++) {
+            for (int j = 0; j <aches.length+1; j++) {
+                if(j==0){
+                    matriz[i][j]=aches[i];
+                    }else if(j==1){
+                    matriz[i][j]=valores[i];
+                }else{
+                        matriz[1][2]=nivel_uno[0];
+                        matriz[2][2]=nivel_uno[1];
+                     
+                    }
+                   matriz[2][3]=nivel_dos;
+        }
+        }
+        
+        return matriz;
 
-        return null;
-
-    }
-
+}
 }
