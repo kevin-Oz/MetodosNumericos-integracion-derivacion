@@ -23,6 +23,8 @@ public class Integracion extends javax.swing.JFrame {
     public Integracion() {
         initComponents();
         this.setLocationRelativeTo(null);
+        pnlRosemberg.setVisible(false);
+
     }
     
     public String getFuncion() {
@@ -104,8 +106,11 @@ public class Integracion extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTextHoja = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 51));
 
@@ -147,7 +152,10 @@ public class Integracion extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 103, -1, -1));
+
         cmbFuncion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ∫sen(x) dx    Limites: 1 a 1.4", " ∫x (e^x) dx   Limites: 0 a 1.2", " ∫sen(x)/ x dx Limites: -1 a 1", " ∫x²Ln(x) dx    Limites: 2 a 3", " ∫x²sen(x) dx  Limites: 0 a π ", " ∫dx/√ (x²+1)  Limites 0 a π " }));
+        getContentPane().add(cmbFuncion, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 12, 238, -1));
 
         jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
@@ -157,14 +165,22 @@ public class Integracion extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 66, -1, -1));
 
         spnr.setModel(new javax.swing.SpinnerNumberModel(0, 0, 4, 1));
+        getContentPane().add(spnr, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 69, 41, -1));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Seleccione el Método");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 71, -1, -1));
 
         pnlResult.setBackground(new java.awt.Color(153, 153, 255));
 
         jLabel6.setText("Limite Superior:");
+
+        txtB.setEditable(false);
+
+        txtA.setEditable(false);
 
         jLabel7.setText("Limite Inferior:");
 
@@ -172,6 +188,7 @@ public class Integracion extends javax.swing.JFrame {
 
         jLabel9.setText("Valor Apróximado:");
 
+        txtResp.setEditable(false);
         txtResp.setText(" ");
 
         javax.swing.GroupLayout pnlResultLayout = new javax.swing.GroupLayout(pnlResult);
@@ -222,6 +239,8 @@ public class Integracion extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
+        getContentPane().add(pnlResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 103, -1, -1));
+
         pnlRosemberg.setBackground(new java.awt.Color(0, 0, 0));
 
         JTextHoja.setColumns(20);
@@ -244,63 +263,38 @@ public class Integracion extends javax.swing.JFrame {
             pnlRosembergLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRosembergLayout.createSequentialGroup()
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spnr))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1)
-                            .addComponent(pnlResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnlRosemberg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(cmbFuncion, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cmbFuncion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(spnr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pnlResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlRosemberg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(152, Short.MAX_VALUE))
-        );
+        getContentPane().add(pnlRosemberg, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 232, 395, 114));
+
+        jButton2.setBackground(new java.awt.Color(0, 204, 51));
+        jButton2.setText("<<");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/otroFondo.jpg"))); // NOI18N
+        jLabel11.setText("           ");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        pnlRosemberg.setVisible(false);
         String funcion = getFuncion();
         JTextHoja.setText("");
         if (spnr.getValue().equals(1)) {
-            int n = Integer.parseInt(JOptionPane.showInputDialog("Ingrse el número de intervalos: "));
+             int n;
+            do{
+                  n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número de intervalos: "));
+            }while(n<=0);
+          
             double a = Double.parseDouble(txtA.getText());
             double b = Double.parseDouble(txtB.getText());
             Regla_del_Trapecio rt = new Regla_del_Trapecio(funcion, a, b);
@@ -320,7 +314,10 @@ public class Integracion extends javax.swing.JFrame {
             
         } else if (spnr.getValue().equals(2)) { // simpson 1/3
             
-            int n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número de intervalos: "));
+             int n;
+            do{
+                  n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número de intervalos: "));
+            }while(n<=0);
             double a = Double.parseDouble(txtA.getText());
             double b = Double.parseDouble(txtB.getText());
             
@@ -334,7 +331,10 @@ public class Integracion extends javax.swing.JFrame {
             }
         } else if (spnr.getValue().equals(3)) { // simpson 3/8
             JTextHoja.setText("");
-            int n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número de intervalos: "));
+             int n;
+            do{
+                  n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número de intervalos: "));
+            }while(n<=0);
             double a = Double.parseDouble(txtA.getText());
             double b = Double.parseDouble(txtB.getText());
             
@@ -348,7 +348,12 @@ public class Integracion extends javax.swing.JFrame {
             }
         } else if (spnr.getValue().equals(4)) { // Rosemberg
             JTextHoja.setText("");
-            int n = Integer.parseInt(JOptionPane.showInputDialog("¿Hasta que nivel de Rosemberg desea?: "));
+                    pnlRosemberg.setVisible(true);
+
+            int n;
+            do{
+           n= Integer.parseInt(JOptionPane.showInputDialog("¿Hasta que nivel de Rosemberg desea?: "));
+            }while(n<=0);
             double a = Double.parseDouble(txtA.getText());
             double b = Double.parseDouble(txtB.getText());
             
@@ -373,6 +378,12 @@ public class Integracion extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      Portada p = new Portada();
+      p.show();
+      this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -413,8 +424,10 @@ public class Integracion extends javax.swing.JFrame {
     private javax.swing.JTextArea JTextHoja;
     private javax.swing.JComboBox<String> cmbFuncion;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

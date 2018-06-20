@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author kevin
+ * @author kevin Figueroa
  */
 public class FrmDerivada extends javax.swing.JFrame {
 
@@ -23,6 +23,7 @@ public class FrmDerivada extends javax.swing.JFrame {
      */
     public FrmDerivada() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     public String getFuncion() {
@@ -161,25 +162,43 @@ public class FrmDerivada extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jetexarea = new javax.swing.JTextArea();
         jLabel40 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jLabel41 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmbFuncion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ln(x)tan(x)", "(e^x)cos(x)", "(e^x²)sen(x)", "(x³)e^(x²)+cos(x)", "2x²sen(x)", "(3^x)cos(x)", "(2x)(e^x)sen(x)", "(3x²)e^x", "(e^x)sen(x)" }));
+        getContentPane().add(cmbFuncion, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 23, 179, -1));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("x=");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 28, -1, -1));
 
+        txtX.setEditable(false);
         txtX.setText("           ");
+        getContentPane().add(txtX, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 26, 64, -1));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("h=");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 28, -1, -1));
 
+        txtH.setEditable(false);
         txtH.setText("             ");
+        getContentPane().add(txtH, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 26, 86, -1));
 
+        jButton1.setBackground(new java.awt.Color(0, 204, 204));
         jButton1.setText("Derivada");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 23, -1, -1));
+
+        jTabbedPane2.setBackground(new java.awt.Color(0, 204, 102));
+
+        jPanel5.setBackground(new java.awt.Color(153, 153, 255));
 
         jLabel23.setText("Primera Diferencia");
 
@@ -313,6 +332,8 @@ public class FrmDerivada extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Dif finitas Centradas", jPanel5);
 
+        jPanel3.setBackground(new java.awt.Color(153, 153, 255));
+
         PDAdelanteP.setText("                            ");
         PDAdelanteP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -441,6 +462,8 @@ public class FrmDerivada extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Dif finita hacia Adelante", jPanel3);
 
+        jPanel4.setBackground(new java.awt.Color(153, 153, 255));
+
         jLabel11.setText("f'(x)");
 
         PDAtrasP.setText("                         ");
@@ -558,6 +581,8 @@ public class FrmDerivada extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Dif finita hacia Atras", jPanel4);
 
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+
         jLabel33.setText("Formula de los 3 puntos");
 
         jLabel34.setText("Formulas de los 5 puntos");
@@ -620,9 +645,9 @@ public class FrmDerivada extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel33)
-                    .addComponent(jLabel34))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel39)
                 .addGap(5, 5, 5)
@@ -641,6 +666,8 @@ public class FrmDerivada extends javax.swing.JFrame {
         );
 
         jTabbedPane2.addTab("Formulas de los 3 y 5 puntos", jPanel2);
+
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
         jetexarea.setColumns(20);
         jetexarea.setRows(5);
@@ -671,45 +698,20 @@ public class FrmDerivada extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Extrapolación de Richardson", jPanel1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(cmbFuncion, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtX, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtH, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(82, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbFuncion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(56, 56, 56)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
-        );
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+
+        jButton3.setBackground(new java.awt.Color(0, 204, 51));
+        jButton3.setText("<<");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
+
+        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondito.jpg"))); // NOI18N
+        jLabel41.setText("            ");
+        getContentPane().add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -791,6 +793,13 @@ Richardson rick = new Richardson(x,h,funcion);
         // TODO add your handling code here:
     }//GEN-LAST:event_PD3PActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+ Portada p = new Portada();
+   
+      p.show();
+      this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -856,6 +865,7 @@ Richardson rick = new Richardson(x,h,funcion);
     private javax.swing.JTextField SDCentradaT;
     private javax.swing.JComboBox<String> cmbFuncion;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -891,6 +901,7 @@ Richardson rick = new Richardson(x,h,funcion);
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
